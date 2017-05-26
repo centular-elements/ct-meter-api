@@ -1,0 +1,41 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../ct-core-utils/ct-api-provider-behaviour.html">
+
+<!--
+`ct-meter-api`
+API for meter management
+
+@demo demo/index.html
+-->
+
+<dom-module id="ct-meter-api">
+  <template>
+    <ct-user-identity id="identity"></ct-user-identity>
+
+    <iron-ajax id="getMeterTypes"></iron-ajax>
+
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'ct-meter-api',
+        behaviors: [CT.Behaviours.ApiProvider],
+
+
+        /**
+         * Get all meter types
+         *
+         * @returns {Promise}
+         */
+
+        getMeterTypes : function(){
+            this.$.getMeterTypes.url = this._url('/meter/types');
+            return this._generateRequest(this.$.getMeterTypes);
+        },
+
+    });
+  </script>
+</dom-module>
