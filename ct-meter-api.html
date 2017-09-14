@@ -32,7 +32,7 @@ API for meter management
          */
 
         getMeterTypes : function(){
-            this.$.getMeterTypes.url = this._url('/meter/types');
+            this.$.getMeterTypes.url = this._url('/meters/types');
             return this._generateRequest(this.$.getMeterTypes);
         },
 
